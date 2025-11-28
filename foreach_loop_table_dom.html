@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> JAVASCRIPT DOM MANIPULATION  - ARRAYS OF OBJECTS AND TABLE LOOPING</title>
+
+<style type="text/css">
+	#myTable{
+
+		border-collapse: collapse;
+
+	}
+
+	#myTable td{
+
+		padding: 5px;
+		border:1px dashed black;
+	}
+
+</style>
+
+</head>
+<body>
+<h2>JAVASCRIPT DOM MANIPULATION  - ARRAYS OF OBJECTS AND TABLE forEach Loop</h2>
+	<table id="myTable">
+		<thead>
+		<tr>
+			<td>S/N </td> 
+			<td>NAME </td> 
+			<td> AGE</td> 
+		</tr>
+		</thead>
+	<tbody id="myTableBody">
+
+	</tbody>
+
+
+
+	</table>
+
+
+	<script type="text/javascript">
+const tableData = [
+    { 'name': 'Adeola Makinde', 'age': '26' },
+    { 'name': 'Taiwo Kingsley', 'age': '20' },
+    { 'name': 'Jumoke Bimbo', 'age': '40' },
+];
+
+buildTable(tableData);
+
+function buildTable(data) {
+    const tableBody = document.getElementById('myTableBody');
+    let rowNumber = 1;
+
+    data.forEach(item => {
+        const newRow = document.createElement('tr');
+
+        const cellNumber = document.createElement('td');
+        cellNumber.textContent = rowNumber++;
+        newRow.appendChild(cellNumber);
+
+        const cellName = document.createElement('td');
+        cellName.textContent = item.name;
+        newRow.appendChild(cellName);
+
+        const cellAge = document.createElement('td');
+        cellAge.textContent = item.age;
+        newRow.appendChild(cellAge);
+
+        tableBody.appendChild(newRow);
+    });
+}
+
+
+	</script>
+</body>
+</html>
